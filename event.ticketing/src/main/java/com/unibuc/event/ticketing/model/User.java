@@ -1,18 +1,17 @@
 package com.unibuc.event.ticketing.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "users")
 public class User {
     @Id
-    private String id;
+    private String userId;
     private String email;
     private String password;
-    private String name;
-    @OneToOne
-    private User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountId")
+    private Account account;
 }
