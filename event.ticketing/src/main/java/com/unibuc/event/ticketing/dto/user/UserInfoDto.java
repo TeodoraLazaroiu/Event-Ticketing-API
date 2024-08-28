@@ -1,6 +1,6 @@
-package com.unibuc.event.ticketing.dto;
+package com.unibuc.event.ticketing.dto.user;
 
-import com.unibuc.event.ticketing.model.Order;
+import com.unibuc.event.ticketing.dto.order.OrderInfoDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

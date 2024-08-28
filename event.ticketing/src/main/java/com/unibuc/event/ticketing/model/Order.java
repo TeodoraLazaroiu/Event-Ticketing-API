@@ -20,6 +20,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "accountId")
     private Account account;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private List<Ticket> tickets;
 }

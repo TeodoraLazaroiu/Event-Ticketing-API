@@ -1,9 +1,6 @@
 package com.unibuc.event.ticketing.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Table(name = "categories")
 public class Category {
     @Id
+    @Column(insertable = false, updatable = false, columnDefinition="serial")
     private String categoryId;
     private String name;
     @ManyToMany(mappedBy = "categories")

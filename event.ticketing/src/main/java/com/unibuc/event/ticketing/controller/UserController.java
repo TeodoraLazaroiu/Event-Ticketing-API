@@ -1,8 +1,8 @@
 package com.unibuc.event.ticketing.controller;
 
-import com.unibuc.event.ticketing.dto.CreateUserDto;
-import com.unibuc.event.ticketing.dto.UserCreatedDto;
-import com.unibuc.event.ticketing.dto.UserInfoDto;
+import com.unibuc.event.ticketing.dto.user.CreateUserDto;
+import com.unibuc.event.ticketing.dto.user.UserCreatedDto;
+import com.unibuc.event.ticketing.dto.user.UserInfoDto;
 import com.unibuc.event.ticketing.exception.AccountNotFoundException;
 import com.unibuc.event.ticketing.exception.UserNotFoundException;
 import com.unibuc.event.ticketing.service.UserService;
@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

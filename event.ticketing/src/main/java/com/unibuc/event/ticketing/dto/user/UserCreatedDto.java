@@ -1,4 +1,4 @@
-package com.unibuc.event.ticketing.dto;
+package com.unibuc.event.ticketing.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -10,9 +10,12 @@ import java.util.List;
 @Table(name = "events")
 public class Event {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String eventId;
     private String name;
     private String description;
+    private Integer seats;
+    private Integer ticketPrice;
     @OneToMany(mappedBy = "event")
     private List<Ticket> tickets;
     @ManyToMany

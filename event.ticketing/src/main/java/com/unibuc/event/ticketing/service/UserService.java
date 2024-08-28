@@ -1,9 +1,9 @@
 package com.unibuc.event.ticketing.service;
 
-import com.unibuc.event.ticketing.dto.CreateUserDto;
-import com.unibuc.event.ticketing.dto.OrderInfoDto;
-import com.unibuc.event.ticketing.dto.UserCreatedDto;
-import com.unibuc.event.ticketing.dto.UserInfoDto;
+import com.unibuc.event.ticketing.dto.user.CreateUserDto;
+import com.unibuc.event.ticketing.dto.order.OrderInfoDto;
+import com.unibuc.event.ticketing.dto.user.UserCreatedDto;
+import com.unibuc.event.ticketing.dto.user.UserInfoDto;
 import com.unibuc.event.ticketing.exception.AccountNotFoundException;
 import com.unibuc.event.ticketing.exception.UserNotFoundException;
 import com.unibuc.event.ticketing.model.Account;
