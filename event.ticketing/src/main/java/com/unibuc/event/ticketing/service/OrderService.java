@@ -70,7 +70,9 @@ public class OrderService {
             if (ticketsNumber != 0) {
                 eventId = tickets.get(0).getEvent().getEventId();
             }
-            var orderInfo = new OrderInfoDto(order.getOrderNumber(), ticketsNumber, orderPrice, eventId);
+
+            var ticketIds = tickets.stream().map(Ticket::getTicketId).toList();
+            var orderInfo = new OrderInfoDto(order.getOrderNumber(), ticketsNumber, orderPrice, eventId, ticketIds);
             ordersList.add(orderInfo);
         }
 
