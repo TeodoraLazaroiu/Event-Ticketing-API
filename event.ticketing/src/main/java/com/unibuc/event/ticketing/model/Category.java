@@ -1,16 +1,18 @@
 package com.unibuc.event.ticketing.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "categories")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
     @Id
-    @Column(insertable = false, updatable = false, columnDefinition="serial")
     private String categoryId;
     private String name;
     @ManyToMany(mappedBy = "categories")

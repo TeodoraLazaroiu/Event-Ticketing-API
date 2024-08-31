@@ -11,5 +11,4 @@ import java.util.List;
 public class UserInfoDto {
     public String email;
     public String name;
-    public List<OrderInfoDto> ordersInfo;
 }
