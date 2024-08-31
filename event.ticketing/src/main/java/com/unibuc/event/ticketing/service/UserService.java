@@ -56,13 +56,13 @@ public class UserService {
     public User getUser(String userId) throws UserNotFoundException {
         var user = userRepository.findById(userId);
         if (user.isPresent()) return user.get();
-        else throw new UserNotFoundException();
+        else throw new UserNotFoundException("User was not found");
     }
 
     public Account getAccount(String accountId) throws AccountNotFoundException {
         var account = accountRepository.findById(accountId);
         if (account.isPresent()) return account.get();
-        else throw new AccountNotFoundException();
+        else throw new AccountNotFoundException("User account was not found");
     }
 
     public UserInfoDto getUserInfo(String userId) throws UserNotFoundException, AccountNotFoundException {

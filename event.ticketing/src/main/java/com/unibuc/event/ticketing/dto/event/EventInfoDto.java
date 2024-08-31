@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class EventInfoDto {
+    public String eventId;
     private String name;
     private String description;
     private Integer availableSeats;

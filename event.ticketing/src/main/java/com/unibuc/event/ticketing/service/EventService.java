@@ -53,7 +53,7 @@ public class EventService {
             var soldTickets = event.getTickets().size();
             var categories = event.getCategories().stream().map(Category::getName).toList();
 
-            var info = new EventInfoDto(event.getName(), event.getDescription(),
+            var info = new EventInfoDto(event.getEventId(), event.getName(), event.getDescription(),
                     event.getSeats(), soldTickets, event.getTicketPrice(), categories);
 
             eventsInfo.add(info);

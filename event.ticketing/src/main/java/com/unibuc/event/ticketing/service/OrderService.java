@@ -54,7 +54,7 @@ public class OrderService {
         return new OrderPlacedDto(orderNumber);
     }
 
-    public List<OrderInfoDto> getUserOrders(String userId) throws UserNotFoundException, AccountNotFoundException, OrderNotFoundException {
+    public List<OrderInfoDto> getUserOrders(String userId) throws UserNotFoundException, AccountNotFoundException {
         var user = userService.getUser(userId);
         var account = userService.getAccount(user.getAccount().getAccountId());
 
