@@ -1,5 +1,6 @@
 package com.unibuc.event.ticketing.service;
 
+import com.unibuc.event.ticketing.dto.order.OrderInfoDto;
 import com.unibuc.event.ticketing.dto.order.OrderPlacedDto;
 import com.unibuc.event.ticketing.dto.order.PlaceOrderDto;
 import com.unibuc.event.ticketing.exception.*;
@@ -11,13 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class OrderService {
     @Autowired
     private UserService userService;
-    @Autowired
-    private AccountService accountService;
     @Autowired
     private EventService eventService;
     @Autowired
@@ -31,7 +31,7 @@ public class OrderService {
     }
     public OrderPlacedDto placeOrder(PlaceOrderDto placeOrder) throws UserNotFoundException, EventNotFoundException, AccountNotFoundException, NotEnoughEventSeatsException {
         var user = userService.getUser(placeOrder.getUserId());
-        var account = accountService.getAccount(user.getAccount().getAccountId());
+        var account = userService.getAccount(user.getAccount().getAccountId());
         var event = eventService.getEvent(placeOrder.getEventId());
 
         var order = new Order();
@@ -52,5 +52,28 @@ public class OrderService {
 
         var orderNumber = savedOrder.getOrderNumber();
         return new OrderPlacedDto(orderNumber);
+    }
+
+    public List<OrderInfoDto> getUserOrders(String userId) throws UserNotFoundException, AccountNotFoundException, OrderNotFoundException {
+        var user = userService.getUser(userId);
+        var account = userService.getAccount(user.getAccount().getAccountId());
+
+        var orders = account.getOrders();
+        var ordersList = new ArrayList<OrderInfoDto>();
+
+        for (Order order: orders) {
+            var tickets = order.getTickets();
+            int ticketsNumber = tickets.size();
+            Integer orderPrice = tickets.stream().mapToInt(Ticket::getPrice).sum();
+
+            String eventId = null;
+            if (ticketsNumber != 0) {
+                eventId = tickets.get(0).getEvent().getEventId();
+            }
+            var orderInfo = new OrderInfoDto(order.getOrderNumber(), ticketsNumber, orderPrice, eventId);
+            ordersList.add(orderInfo);
+        }
+
+        return ordersList;
     }
 }

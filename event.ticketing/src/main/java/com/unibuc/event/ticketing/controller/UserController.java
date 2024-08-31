@@ -49,27 +49,6 @@ public class UserController {
         }
     }
 
-    @GetMapping("/orders")
-    @Operation(summary = "Get user orders", description = "Get a user's orders")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200"),
-            @ApiResponse(responseCode = "404"),
-            @ApiResponse(responseCode = "500")
-    })
-    public ResponseEntity<List<OrderInfoDto>> getUserOrders(@RequestParam String userId)
-    {
-        try {
-            var orders = userService.getUserOrders(userId);
-            return ResponseEntity.ok(orders);
-        }
-        catch (UserNotFoundException | AccountNotFoundException ex) {
-            return ResponseEntity.notFound().build();
-        }
-        catch (Exception ex) {
-            return ResponseEntity.internalServerError().build();
-        }
-    }
-
     @PostMapping
     @Operation(summary = "Create a user", description = "Create a new user and an account")
     @ApiResponses({
@@ -77,6 +56,7 @@ public class UserController {
             @ApiResponse(responseCode = "404"),
             @ApiResponse(responseCode = "500")
     })
+
     public ResponseEntity<UserCreatedDto> createUser(@Valid @RequestBody CreateUserDto userDto)
     {
         try {
