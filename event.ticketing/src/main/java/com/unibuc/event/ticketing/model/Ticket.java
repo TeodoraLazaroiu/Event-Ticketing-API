@@ -26,4 +26,9 @@ public class Ticket {
         this.event = event;
         this.order = order;
     }
+
+    public Ticket(String ticketId, Integer price) {
+        this.ticketId = ticketId;
+        this.price = price;
+    }
 }

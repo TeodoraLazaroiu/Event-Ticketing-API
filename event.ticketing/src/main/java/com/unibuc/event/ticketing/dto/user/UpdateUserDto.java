@@ -3,9 +3,11 @@ package com.unibuc.event.ticketing.dto.user;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class UpdateUserDto {
     @NotNull
     public String userId;

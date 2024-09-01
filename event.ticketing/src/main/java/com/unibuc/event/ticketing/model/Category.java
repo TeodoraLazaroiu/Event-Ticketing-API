@@ -17,4 +17,9 @@ public class Category {
     private String name;
     @ManyToMany(mappedBy = "categories")
     private List<Event> events;
+
+    public Category(String categoryId, String name) {
+        this.categoryId = categoryId;
+        this.name = name;
+    }
 }

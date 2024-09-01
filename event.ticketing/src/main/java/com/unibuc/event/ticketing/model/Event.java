@@ -26,4 +26,12 @@ public class Event {
     joinColumns = @JoinColumn(name = "event_id"),
     inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
+
+    public Event(String eventId, String name, String description, Integer seats, Integer ticketPrice) {
+        this.eventId = eventId;
+        this.name = name;
+        this.description = description;
+        this.seats = seats;
+        this.ticketPrice = ticketPrice;
+    }
 }

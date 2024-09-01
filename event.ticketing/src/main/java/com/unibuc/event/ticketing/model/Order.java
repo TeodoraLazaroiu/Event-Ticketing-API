@@ -22,4 +22,9 @@ public class Order {
     private Account account;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", fetch = FetchType.EAGER)
     private List<Ticket> tickets;
+
+    public Order(String orderId, Integer orderNumber) {
+        this.orderId = orderId;
+        this.orderNumber = orderNumber;
+    }
 }

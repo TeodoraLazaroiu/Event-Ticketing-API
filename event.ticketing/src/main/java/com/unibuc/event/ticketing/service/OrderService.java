@@ -50,8 +50,8 @@ public class OrderService {
         event.setSeats(event.getSeats() - number);
         eventService.saveEvent(event);
 
-        var orderNumber = savedOrder.getOrderNumber();
-        return new OrderPlacedDto(orderNumber);
+        var orderId = savedOrder.getOrderId();
+        return new OrderPlacedDto(orderId);
     }
 
     public List<OrderInfoDto> getUserOrders(String userId) throws UserNotFoundException, AccountNotFoundException {
