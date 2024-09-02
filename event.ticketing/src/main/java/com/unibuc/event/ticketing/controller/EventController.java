@@ -28,7 +28,7 @@ public class EventController {
     private EventService eventService;
 
     @GetMapping
-    @Operation(summary = "Get events", description = "Get all events or events for a category")
+    @Operation(summary = "Get all events or by category", description = "Get all events or events for a category")
     @ApiResponses({
             @ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Bad Request", responseCode = "400"),

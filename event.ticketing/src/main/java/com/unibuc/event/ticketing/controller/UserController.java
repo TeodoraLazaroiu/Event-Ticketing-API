@@ -27,7 +27,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping()
-    @Operation(summary = "Get user", description = "Get user and an account details")
+    @Operation(summary = "Get user information", description = "Get user and an account details")
     @ApiResponses({
             @ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Not Found", responseCode = "404"),
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @PostMapping
-    @Operation(summary = "Create user", description = "Create a new user and an account")
+    @Operation(summary = "Create user and account", description = "Create a new user and an account")
     @ApiResponses({
             @ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Server error", responseCode = "500")
@@ -67,7 +67,7 @@ public class UserController {
     }
 
     @PutMapping
-    @Operation(summary = "Update user", description = "Update a user and an account")
+    @Operation(summary = "Update user and account", description = "Update a user and an account")
     @ApiResponses({
             @ApiResponse(description = "Success", responseCode = "200"),
             @ApiResponse(description = "Bad Request", responseCode = "400"),

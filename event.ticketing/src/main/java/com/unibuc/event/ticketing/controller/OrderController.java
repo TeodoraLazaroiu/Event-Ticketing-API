@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api/order", produces = MediaType.APPLICATION_JSON_VALUE)
-@Tag(name = "Orders", description = "Endpoints for orders")
+@Tag(name = "Orders", description = "Endpoints for orders and tickets")
 public class OrderController {
     @Autowired
     private OrderService orderService;
