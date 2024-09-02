@@ -2,13 +2,10 @@ package com.unibuc.event.ticketing.service;
 
 import com.unibuc.event.ticketing.dto.event.CategoryInfoDto;
 import com.unibuc.event.ticketing.dto.event.EventInfoDto;
-import com.unibuc.event.ticketing.dto.order.OrderInfoDto;
 import com.unibuc.event.ticketing.exception.CategoryNotFoundException;
 import com.unibuc.event.ticketing.exception.EventNotFoundException;
 import com.unibuc.event.ticketing.model.Category;
 import com.unibuc.event.ticketing.model.Event;
-import com.unibuc.event.ticketing.model.Order;
-import com.unibuc.event.ticketing.model.Ticket;
 import com.unibuc.event.ticketing.repository.CategoryRepository;
 import com.unibuc.event.ticketing.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class EventService {
@@ -25,6 +21,7 @@ public class EventService {
     private EventRepository eventRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+
     public Event getEvent(String eventId) throws EventNotFoundException {
         var event = eventRepository.findById(eventId);
         if (event.isPresent()) return event.get();

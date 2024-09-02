@@ -7,7 +7,6 @@ import com.unibuc.event.ticketing.exception.*;
 import com.unibuc.event.ticketing.model.Order;
 import com.unibuc.event.ticketing.model.Ticket;
 import com.unibuc.event.ticketing.repository.OrderRepository;
-import com.unibuc.event.ticketing.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +21,7 @@ public class OrderService {
     private EventService eventService;
     @Autowired
     private OrderRepository orderRepository;
-    @Autowired
-    private TicketRepository ticketRepository;
-    public Order getOrder(String orderId) throws OrderNotFoundException {
-        var order = orderRepository.findById(orderId);
-        if (order.isPresent()) return order.get();
-        else throw new OrderNotFoundException();
-    }
+
     public OrderPlacedDto placeOrder(PlaceOrderDto placeOrder) throws UserNotFoundException, EventNotFoundException, AccountNotFoundException, NotEnoughEventSeatsException {
         var user = userService.getUser(placeOrder.getUserId());
         var account = userService.getAccount(user.getAccount().getAccountId());

@@ -10,7 +10,6 @@ import com.unibuc.event.ticketing.exception.UserNotFoundException;
 import com.unibuc.event.ticketing.model.Account;
 import com.unibuc.event.ticketing.model.User;
 import com.unibuc.event.ticketing.repository.AccountRepository;
-import com.unibuc.event.ticketing.repository.OrderRepository;
 import com.unibuc.event.ticketing.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +22,6 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private AccountRepository accountRepository;
-    @Autowired
-    private OrderRepository orderRepository;
 
     public UserCreatedDto createUser(CreateUserDto userDto) {
         var user = new User(userDto.email, userDto.password);

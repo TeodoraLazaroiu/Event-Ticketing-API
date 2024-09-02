@@ -8,6 +8,7 @@ import com.unibuc.event.ticketing.dto.user.UserInfoDto;
 import com.unibuc.event.ticketing.model.Account;
 import com.unibuc.event.ticketing.model.User;
 import com.unibuc.event.ticketing.service.UserService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -34,6 +35,11 @@ public class UserControllerTest {
     private final User user = new User("userId", "test@email.com", "password", new Account());
     private final Account account = new Account("accountId", "test", new User(), new ArrayList<>());
 
+    @BeforeEach
+    public void setup() {
+        user.setAccount(account);
+        account.setUser(user);
+    }
 
     @Test
     public void getUserTest() throws Exception {
